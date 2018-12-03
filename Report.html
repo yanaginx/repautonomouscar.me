@@ -1,0 +1,553 @@
+﻿<!DOCTYPE html>
+<html>
+<title>Report</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, h1, h2, h3, h4, h5, h6 
+    {font-family: "DejaVu Sans", sans-serif; }
+
+    body, html {
+        height: 100%;
+        color: #777;
+        line-height: 2;
+    }
+
+
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+ 
+    .bgimg-1 { 
+        background-image: url('https://puu.sh/CaxzZ/9918002d11.png');
+        min-height: 100%; }
+
+    .bgimg-2 { 
+        background-image: url("https://puu.sh/CaFW8/182a69b417.jpeg"); 
+        min-height: 400px; }
+
+    .bgimg-3 {
+        background-image: url("");
+        min-height: 400px;
+    }
+
+    .bgimg-4 {
+        background-image: url("");
+        min-height: 400px;
+    }
+
+    .bgimg-5 {
+        background-image: url("");
+        min-height: 400px;
+    }
+
+    .w3-wide {
+        letter-spacing: 10px;
+    }
+
+    .w3-hover-opacity {
+        cursor: pointer;
+    }
+
+    @media only screen and (max-device-width: 1600px) {
+        .bgimg-1, .bgimg-2, .bgimg-3 .bgimg-4 .bgimg-5 {
+            background-attachment: scroll;
+            min-height: 400px;
+        }
+    }
+
+    .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0, 0.9);
+        overflow-x: hidden;
+        transition: 0.5s;
+    }
+
+    .overlay-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 36px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .overlay a:hover, .overlay a:focus {
+            color: #f1f1f1;
+        }
+
+    .overlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
+    }
+
+    @media screen and (max-height: 450px) {
+        .overlay a {
+            font-size: 20px
+        }
+
+        .overlay .closebtn {
+            font-size: 40px;
+            top: 15px;
+            right: 35px;
+        }
+    }
+</style>
+</head>
+<body>
+
+    <div class="w3-top">
+        <div class="w3-bar" id="myNavbar">
+            <a href="javascript:void(0)" class="w3-bar-item w3-button" onclick="openNav()"><i class="fa fa-th"></i> ĐIỀU HƯỚNG </a>
+            </a>
+        </div>
+    </div>
+
+
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#home">Trang chủ</a>
+            <a href="#intro">Giới thiệu</a>
+            <a href="#definition">Autonomous Car và các cột mốc, thành tựu</a>
+            <a href="#technology">Autonomous Car và công nghệ Computer Science</a>
+            <a href="#about">Về các thành viên</a>
+            <a href="#reference">Tài liệu tham khảo</a>
+        </div>
+    </div>
+
+
+    <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+        <div class="w3-display-middle" style="white-space:nowrap;">
+            <span style="font-size:60px" class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">AUTONOMOUS <span class="w3-hide-small"></span> CAR</span>
+        </div>
+    </div>
+
+    <div class="w3-content w3-container w3-padding-64" id="intro">
+        <h2 class="w3-center">GIỚI THIỆU</h2>
+        <div class="w3-row">
+            <div class="w3-col m6 w3-center w3-padding-large">
+                <p><b><i class="w3-margin-right"></i>America’s Power Companies’ quảng cáo năm 1956 về xe tự động lái trong tương lai.</b></p><br>
+                <img src="https://puu.sh/CazT1/60e9354a37.png" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="America’s Power Companies’ quảng cáo năm 1956 về xe tự động lái trong tương lai." width="400" height="222">
+            </div>
+
+            <div class="w3-col m6 w3-hide-small w3-padding-large">
+                <p>
+                    Hãy thử tưởng tượng: <br />
+                    <br />
+                    Đang là 7:30 sáng thứ Hai và bạn đang chuẩn bị sắm sửa để đi làm. Bạn nắm vội chiếc vali, rời khỏi nhà và bước lên chiếc xe yêu dấu của mình. Bạn chỉ cần bấm một nút bấm và nói: “Okay
+                    Herbie, đưa tôi đến văn phòng nào”. Xe của bạn sẽ tự động tìm tuyến đường, xem xét những tuyến đường đang bị ùn tắt, và tự động thực hiện chuyến hành trình. <br />
+                    <br />
+                    Ở dàn ghế sau, hoàn toàn không có chỗ ngồi cho tài xế . Còn bạn thì có thời gian để chuẩn bị tài liệu cho mình, học tập, uống một cốc cà phê buổi sáng, hay lướt nhẹ facebook, trong khi Herbie
+                    đang tự lái chính mình - An toàn, chắc chắn và hoàn toàn đáng tin cậy - đến văn phòng của bạn. Trong nhiều thập kỷ, điều này nghe chẳng khác gì phim khoa học viễn tưởng vậy, nhưng xe tự
+                    động lái đang thực sự trở thành sự thật.
+                </p>
+            </div>
+        </div>
+   
+
+        <div class="w3-content w3-container w3-padding-64" id="definition">
+            <h2 class="w3-center"> SƠ LƯỢC VỀ AUTONOMOUS CAR</h2>
+            <h3 class="w3-center"> ĐỊNH NGHĨA VỀ AUTONOMOUS CAR VÀ CÁC CỘT MỐC QUAN TRỌNG</h3>
+            <h4>
+                <span style="font-style:italic">
+                    Autonomous Car là gì?
+                </span> <br />
+            </h4>
+
+            <blockquote class="indent">
+                <br align="right"> <em>Self-driving car</em>, còn được biết đến là <em>robot car</em>, <em>autonomous car</em>, auto</em>, hay <em>driveless car</em>, là phương tiện giao thông với khả năng tự xử lý môi trường xung
+                quanh và chuyển động với rất ít hoặc hoàn toàn không có sự điều khiển của con người.
+                <hr>
+                <div align="right">
+                    <i> Wikipedia: The Free Encyclopedia </i>
+                </div>
+            </blockquote>
+            <h4>
+                <span style="font-style:italic">
+                    Nguồn gốc và những cột mốc quan trọng
+                    trong quá trình phát triển Autonomous Car
+                </span>
+
+            </h4>
+            <p style="text-align:justify">
+                <span style="font-weight:bold">1. Giấc mơ về một chiếc xe tự động lái bắt đầu:</span> <br />
+                Một điều bất ngờ là ý tưởng về <em>Autonomous car</em> đã bắt nguồn không lâu sau sự ra đời của
+                chính những chiếc xe ô tô bình thường. Vào năm 1925, một mô hình sơ khai đã được sáng
+                tạo bởi Houdina. Chiếc xe được điều khiển bằng sóng radio, với Houdina ở chiếc xe phía
+                sau điều khiển, có thể di chuyển trên những con đường ở thành phố Manhattan mà không
+                cần ai ở sau tay lái. Và kể từ đó, những cuộc thử nghiệm đã không ngừng được tiến hành.
+            </p>
+            <p style="text-align:justify">
+                <span style="font-weight:bold">2. Robo-Chauffeur của John McCarthy:</span> <br />
+                Năm 1969, John McCarthy, một trong số những người đã đặt nền tảng cho A.I, đã đặt nền
+                tảng cho khái niệm về những chiếc xe tự động lai trong hiện tại.
+            </p>
+            <p style="text-align:justify">
+                <span style="font-weight:bold">3. Chiếc xe tự lái đầu tiên:</span> <br />
+                Vào năm 1977, chiếc xe thực sự tự lái đầu tiên đã được phát triển. Chiếc xe có khả năng
+                phát hiện những vạch trắng đường với hai cameras được gắn trên xe, sử dụng analog
+                computer để xử lý thông tin.
+            </p>
+            <p style="text-align:justify">
+                <span style="font-weight:bold">4. Carnegie Mellon:</span> <br />
+                Vào đầu những năm 1990, Carnegie Mellon đã diễn tả cách ứng dụng Neural networks vào
+                những chiếc xe tự lái.
+            </p>
+            <p style="text-align:justify">
+                <span style="font-weight:bold">5. Euroka Prometheous project:</span> <br />
+                Vào năm 1995, mẫu xe tự động lái <em>VaMP</em> đã gần như hoàn toàn tự động lái với quãng
+                đường thử nghiệm lên tới 2000km.
+            </p>
+            <p style="text-align:justify">
+                <span style="font-weight:bold">6. Google tìm kiếm một câu trả lời:</span> <br />
+                Vào năm 2009, Google đã phát triển dự án self-driving car đầu tiên, với tên gọi là <em>WAYMO</em>.
+                Chỉ trong vài năm , Google đã công bố rằng những chiếc xe tự động lái đã đi được 300,000
+                miles dưới sự kiểm soát hoàn toàn của máy tính, và cũng hoàn toàn không có một tai nạn
+                nào xảy ra cả. Năm 2014, dự án đã đưa ra một nguyên bản về một chiếc xe hoàn toàn
+                không có phanh, chân ga hay bánh lái, và vì thế, trở nên 100% tự lái.
+            </p>
+            <p style="text-align:justify">
+                <span style="font-weight:bold">7. VIAC experiment:</span> <br />
+                Năm 2010, VisLab, thuộc đại học Parma của Ý, đã bắt đầu cuộc thử nghiệm <em>VisLab Intercontinental Autonomous Challenge (VIAC)</em> dài gần 16.000 km và là hành trình trên đất liền đầu tiên giữa các châu lục được thực hiện bởi xe tự động. Bốn chiếc xe chạy bằng điện đã thực hiện chuyến đi dài 100 ngày, khởi hành ngày 20/7/2010 từ Parma, Ý, và đến Triển lãm Thượng Hải, Trung Quốc vào ngày 28/10.
+                "Dù những chiếc xe không có người lái và bản đồ, trên xe vẫn có một số nhà nghiên cứu tham gia hành trình để đề phòng những trường hợp nguy cấp. Họ đã phải can thiệp vài lần - như khi đoàn xe bị ùn tắc ở Moscow và khi xe đi qua những trạm thu phí."
+            </p>
+            <p style="text-align:justify">
+                <span style="font-weight:bold">8. Mercedes S class và những tính năng vượt bậc:</span> <br />
+                Ra mắt năm 2013, dòng xe <em>Mercedes S-Class 2014</em> có những chức năng như tự động bẻ lái,
+                giữ xe trong làn, tăng tốc/thắng, đậu xe, tránh tai nạn và kiểm tra sức khỏe và độ tỉnh
+                táo của tài xế, trong cả điều kiện giao thông đô thị và trên những đường cao tốc với tốc
+                độ lên đến 200km/h.
+            </p>
+            <p style="text-align:justify">
+                <span style="font-weight:bold">9. Tesla hé lộ thông tin về phiên bản xe của mình:</span> <br />
+                Vào tháng 10/2014, Tesla Motors hé lộ thông tin về phiên bản hệ thống tự lái đầu tiên của
+                họ. Những mẫu xe <em>Model S</em> được trang bị hệ thống này có khả năng điều khiển làn đường
+                với bẻ lái tự động, thắng và giới hạn tốc độ dựa trên những tín hiệu hình ảnh được ghi
+                nhận. Ngoài ra, hệ thống còn có thể tự động đậu xe và có thể được cập nhật hệ thống để
+                cải thiện khả năng theo thời gian. Tính đến tháng 3/2015, Tesla đã thử nghiệm hệ thống
+                tự lái này trên cao tốc giữa San Francisco và Seattle với một người lái nhưng đã để cho xe
+                tự động chạy mà gần như không cần sự can thiệp của tài xế.
+            </p>
+            <p style="text-align:justify">
+                <span style="font-weight:bold">10. Một chiếc xe tự lái đã có thể hoàn thành 1 chặng đường dài:</span> <br />
+                Tháng 4/2015, một chiếc xe được thiết kế bởi Delphi Automotive đã trở thành chiếc xe
+                tự động đầu tiên hoàn thành hành trình giữa hai bên bờ biển của Mĩ, đi từ San Francisco
+                đến New York, dưới sự điều khiển của máy tính trong 99% chặng đường này.
+            </p>
+            <p style="text-align:justify">
+                <span style="font-weight:bold">11. AUDI A8 : Chiếc xe cấp độ 3 tự lái được sản xuất đầu tiên:</span> <br />
+                Vào ngày 4/6/2018, Audi tuyên bố rằng chiếc A8 mới của họ sẽ hoàn toàn tự lái với tốc
+                độ lên đến 60km/h, sử dụng hệ thống trí thông minh nhân tạo Audi AI. Trái lại với những
+                chiếc xe khác, người lái sẽ không cần phải thực hiện những kiểm tra an toàn như chạm
+                vào bánh lái mỗi 15 giây để sử dụng chức năng này. Vì thế nên chiếc <em>Audi A8</em> sẽ là chiếc
+                xe được sản xuất đầu tiên với mức độ tự động lái cấp 3. Khi được kích hoạt, chiếc xe sẽ
+                hoàn toàn điều khiển mọi việc trong điều kiện giao thông di chuyển chậm, với tốc độ lên
+                đến 60km/h. Chức năng này chỉ hoạt động trên những cao tốc có dải ngăn cách các luồng
+                giao thông. Audi cũng sẽ là nhà sản xuất đầu tiên sử dụng hệ thống <em>LIDAR 3D</em> cùng với
+                camera và cảm biến siêu âm cho trí thông minh nhân tạo của họ.
+            </p>
+
+            <h3 class="w3-center">CÁC CẤP ĐỘ GIÀNH CHO XE TỰ ĐỘNG LÁI</h3>
+            <p class="w3-justify>
+                SAE 1 International, một tổ chức chuyên nghiệp, đã đề ra hướng dẫn về những cấp độ cần có cho
+                xe tự lái. Được phổ biến vào năm 2014, những quy chuẩn này đã trở thành tiêu chí đánh giá
+                công nghiệp, được chấp nhận bởi Bộ Giao thông vận tải US và United Nations.<br />
+                Thật sự mà nói vẫn có những sự khác nhau về khả năng của các phương tiện ở mỗi cấp độ của
+                xe tự lái, nhưng những quy chuẩn này vẫn được hầu hết mọi người chấp nhận. <br />
+            </p>
+
+            <div class="w3-row-padding w3-center">
+                <div class="w3-col m4 l4">
+                    <img src="https://puu.sh/CaEix/ba040e11d6.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Xe cấp độ 0">
+                </div>
+
+                <div class="w3-col m4 l4">
+                    <img src="https://puu.sh/CaEiD/8439b889d0.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Kia Stinger GT với điều khiển hành trình tự động và công nghệ Lane-Keeping cấp độ 1">
+                </div>
+
+                <div class="w3-col m4 l4">
+                    <img src="https://puu.sh/CaEit/34ec07525d.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Hệ thống AutoPilot của Tesla đặc trưng cho cấp độ 2">
+                </div>
+            </div>
+
+            <div class="w3-row-padding w3-center w3-section">
+                <div class="w3-col m4 l4">
+                    <img src="https://puu.sh/CaEiw/db25e28bd5.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Audi R8 2018 cấp độ 3">
+                </div>
+
+                <div class="w3-col m4 l4">
+                    <img src="https://puu.sh/CaEiA/c1eee046f2.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Volvo thử nghiệm công nghệ tự lái cấp độ 4 trên XC90">
+                </div>
+
+                <div class="w3-col m4 l4">
+                    <img src="https://puu.sh/CaEiz/da18f51223.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt=" Mercedes-Benz F 015 cấp độ 5">
+                </div>
+            </div>
+            <h3 class="w3-center">THÀNH PHẦN GIÚP CHO AUTONOMOUS CAR HOẠT ĐỘNG</h3>
+            <img src="https://puu.sh/CaFUv/80c69aba51.png" class="w3-round w3-image w3-opacity w3-hover-opacity-off" />
+            <h4 class="w3-center">Thị giác máy tính (Computer Vision)</h4>
+            <p style="text-align:justify">
+                <em>Computer Vision</em> chính là cách chúng ta sử dụng các camera để quan sát đường đi. Bình
+                thường, con người sử dụng khả năng quan sát của mình và điều khiển xe bằng hai mắt và
+                bộ não. Đối với một chiếc xe tự động lái, chúng ta có thể sử dụng hình ảnh từ camera, để
+                dò được làn đường, chướng ngái vật, hay xác định những phương tiện khác trên đường.
+            </p>
+            <h4 class="w3-center">Kết hợp cảm biến (Sensor Fusion)</h4>
+            <p style="text-align:justify">
+                <em>Sensor Fusion</em> chính là cách chúng ta kết hợp dữ liệu có được từ những cảm biến khác, như
+                radar và lasers-cùng với dữ liệu thu được từ camera- để xây dựng một mô hình khả định
+                về môi trường xung quanh phương tiện. Dù camera rất tốt, nhưng vẫn có đơn vị đặc biệt
+                cần phải định toán – như khoảng cách hay vận tốc-mà chỉ với cảm biến chúng ta mới có
+                thể đo đạc một cách hiệu quả hơn. Bằng cách kết hợp tất cả dữ liệu có được, chúng ta tạo
+                nên một mô hình chính xác hơn về thế giới xung quanh.
+            </p>
+            <h4 class="w3-center">Định vị hóa (Localization)</h4>
+            <p style="text-align:justify">
+                <em>Localization</em> là cách mà chúng ta định vị được vị trí của ta trong thế giới này, sau khi đã
+                có được cái nhìn chính xác về thế giới xung quanh. Hiện nay, điện thoại của chúng ta đều
+                được trang bị với GPS, nên có vẻ như chúng ta biết được chúng ta đang ở đâu trong mọi
+                lúc. Nhưng sự thật rằng GPS chỉ chính xác trong khoảng từ 1-2 mét. Hãy nghĩ xem 1-2
+                mét lớn đến thé nào!! Nếu một chiếc xe chuyển động sai lệch đi 1-2 mét, có khi nó đang
+                ở trên lề đường tông vào xe bán bánh mì hay mấy cái cây rồi. Do đó, đối với xe tự động
+                hóa, cần có những thuật toán nhất định dể xác định được vị trí chính xác.
+            </p>
+            <h4 class="w3-center">Hoạch định chuyển động (Path planning)</h4>
+            <p style="text-align:justify">
+                <em>Path planning</em> chính là bước tiếp theo, một khi chúng ta đã biết được thế giới xung quanh
+                nhìn như thế nào, và chúng ta đang ở đâu trong đó. Trong giai đoạn này, chúng ta sẽ tạo
+                nên một lộ trình để đến được nơi chúng ta cần. Đầu tiên, ta cần một thuật toán có thể
+                đoán được chuyển động của các phương tiện xung quanh. Sau đó chúng ta cần phải quyết
+                định cách thức di chuyển mà chúng ta muốn để phù hợp vói chuyển động của các phương
+                tiện đó (giống như đường cong, đường dốc thì phải có tốc độ phù hợp, xe phía trước đổi
+                làn qua trái thì phải giảm tốc...) tạo nên một lộ trình nhất định và hợp lý nhất.
+            </p>
+            <h4 class="w3-center">Điều khiển (Control)</h4>
+            <p style="text-align:justify">
+                <em>Control</em> chính là bước cuối cùng. Sau khi đã có được lộ trình , xe cần phải quay bánh lái,
+                đạp ga và đạp phanh một cách phù hợp nhất . Nếu bạn đã từng thử quẹo cua khi đang ở
+                tốc độ cao, thì điều này không dễ dàng chút nào!! Đôi khi bạn có ý tưởng về tuyến đường
+                mà bạn muốn đi, nhưng để có thể điều khiển được xe đi theo đúng chính xác tuyến đường
+                đó thì thật sự tốn rất nhiều công sức! Những tay đua xe thì giỏi ở khoảng này thật, nhưng
+                máy tính cũng đang dần trở nên rất giỏi ở khoảng này!
+            </p>
+
+
+            <div class="bgimg-2 w3-display-container w3-opacity-min" id="technology">
+                <div class="w3-display-middle">
+                    <span class="w3-xxlarge w3-text-white w3-wide">AUTONOMOUS CAR VÀ CÔNG NGHỆ COMPUTER SCIENCE</span>
+                </div>
+            </div>
+            <p style="text-align:justify">
+                Hệ thống tự động gần đây đã thu hút được rất nhiều sự chú ý của cả thế giới nhờ các thành
+                tựu quan trọng trong các lĩnh vực về <em>Thị giác máy tính (Computer Vision)</em> , <em>
+                    Xử lý hình ảnh
+                    (Graphical Processing Unit)
+                </em> và các công nghệ cảm biến. Một hệ thống tự động cấn rất nhiều
+                công nghệ để thực hiện công việc của nó một cách hiệu quả và an toàn nhất.
+                Hãy lấy ví dụ về một dòng xe tự lái đó là <em>Uber’s self driving car</em>. <em>Uber’s self driving car</em> sử
+                dụng một tập hợp các camera để nhận diện các phương tiện, người đi bộ , chướng ngại vật, đèn
+                giao thông và các làn đường. Xe sử dụng các phát triển mới trong <em>Computer Vision</em> và Neural
+                Network, như là <em>Mạng neural tích chập (CNN)</em>, <em>Mạng neural tích chập đầy đủ (FCNs)</em> và cả
+                Transfer Learning trong Machine Learning, Sensor technologies, Data science... và rất nhiều nữa.
+                Dưới đây là sơ lược một số công nghệ có liên quan đến khoa học máy tính đã trực tiếp ảnh hưởng
+                đến sự phát triển của xe tự lái:
+            </p>
+            <hr />
+            <h3 class="w3-center">Transfer learning</h3>
+            <p style="text-align:justify">
+                <em>Transfer learning</em> là một ứng dụng có được từ <em>Machine Learning</em>. <em>Transfer learning</em>, về cơ bản, là
+                sự cải thiện và phát triển các kiến thức cần thiết để hoàn thành một nhiệm vụ nhất định nào nó
+                bằng cách chuyển giao các kiến thức về một nhiệm vụ nhất định khác mà đã được hoàn thiện.
+                (Ví dụ: kiến thức để nhận diện các loại xe ô tô bình thường cũng có sử dụng một phần để nhận
+                diện xe buýt). Trong khi đó, các thuật toán về <em>Machine Learning</em> trước đây hầu hết chỉ được
+                dành cho một nhiệm vụ nhất định. Vì thế, nhờ <em>Transfer Learning</em>, một mô hình có thể được cụ
+                thể hóa cho mục đích phân loại và phát hiện nhiều loại đối tượng khác nhau.
+            </p>
+            <img src="https://puu.sh/CaHji/c7cca6faf9.png style="height:100%; width=100%;" class="w3-round w3-image w3-opacity w3-hover-opacity-off" />
+            <hr />
+            <h3 class="w3-center">Convolutional Neural Networks</h3>
+            <p style="text-align:justify">
+                <em>Convolutional Neural Networks (CNNs)</em> là <em>Deep Aritificial Networks (Mạng nơ-ron nhân tạo)</em>
+                được sử dụng với mục đích chính là phân loại ảnh (đặt tên cho những thứ nó thấy), nhóm các
+                hình ảnh có những điểm chung (tìm kiếm hình ảnh), và nhận diện các đối tượng khác ở hoạt
+                cảnh xung quanh. Chúng là những thuật toán có thể nhận diện được từng khuôn mặt, từng cá
+                nhân, bảng hiệu, khối u, con chó và nhiều thứ nữa. <br />
+                Deep learning sử dụng <em>CNNs</em> để phát hiện và phân biệt các biển báo giao thông, đèn giao thông...,
+                giúp cung cấp các thông tin quan trọng cho việc định hướng.
+            </p>
+            <img src="https://puu.sh/CaHc5/b3b9248a8e.png" class="w3-round w3-image w3-opacity w3-hover-opacity-off" />
+            <hr />
+            <h3 class="w3-center">Fully-convolutional Networks</h3>
+            <p style="text-align:justify">
+                Mục đích chính của <em>Fully-convolutional Networks (FCNs)</em> là để “phân vùng ảnh” (Semantic
+                segmentation). Kết quả của nó là một hình ảnh có kích thước giống như ảnh gốc đã được input
+                vào, mô tả đại khái hình ảnh gốc nhưng ở trong kết quả hình ảnh thu được đó mỗi pixel của nó
+                đều được xác định một màu sắc trong số C màu, trong đó C là số mục phân loại mà ta đang
+                muốn phân ra.
+            </p>
+            <img src="https://puu.sh/CaHc4/fedc04a3a1.png style="height:100%; width=100%" class="w3-round w3-image w3-opacity w3-hover-opacity-off" />
+            <hr />
+            <h3 class="w3-center">Light Detection and Ranging</h3>
+            <p style="text-align:justify">
+                Hình ảnh về môi trường xung quanh chúng ta, tuy vậy, vẫn là chưa đủ để có thể lái quanh những
+                góc đường của thành phố. Một hệ thống GPS cũng cần thiết để có thể xác định được vị trí của
+                của xe. Tuy nhiên, sự sai lệch của GPS đôi khi có thể dao động từ 1.5m-4m. Hãy thử tưởng tượng
+                xem, chiếc xe chắc hẳn đang tông qua bãi cỏ hoặc lộn xuống cầu nếu sai lệch lớn đến mức như
+                vậy! Vì thế, một hệ thống các cảm biến thông minh ngoài GPS là một điều cần thiết, và chúng
+                ta có <em>Light Detection and Ranging (LIDAR)</em>, <em>LIDAR</em> hoạt động bằng cách đo khoảng cách bằng
+                viết chiếu sáng mục tiêu bằng laser và cân đo các dòng phản xạ lại với một cảm biến đặc biệt.
+                Thông tin thu được từ đó, cùng với <em>RADAR</em> và các cảm biến khác được dùng để tạo ra bản
+                đồ 3D xung quanh xe, cũng như vị trí của chiếc xe trong môi trường ấy. Các thuật toán được
+                sử dụng trong quá trình định vị (Localization) này có thể nhắc đến như <em>
+                    SLAM (Simultaneous
+                    localization and mapping)
+                </em>, <em>Kalman filter</em>, <em>Particle Filter</em>.
+            </p>
+            <img src="https://puu.sh/CaHc3/dfa2099072.png style="height:100%; width=100%" class="w3-round w3-image w3-opacity w3-hover-opacity-off" />
+            <hr />
+            <h3 class="w3-center">Behavioural Cloning</h3>
+            <p style="text-align:justify">
+                <em>Behavioural Cloning</em> là một phương pháp mà khi đó các kỹ năng được tích lũy từ kinh nghiệm
+                của con người có thể được nhận biết và tiếp nhận ở một chương trình máy tính. <em>
+                    Behavioural
+                    Cloning
+                </em> sử dụng các công nghệ như CNNs và FCNs để “huấn luyện” một mô hình giúp cho nó
+                có khả năng bắt chước cách mà con người lái xe - đặc biệt là cách xử lý của tài xế đối với mỗi
+                trường hợp đường đi khác nhau.
+            </p>
+            <img src="https://puu.sh/CaHc9/ba4080e90e.png style="height:100%; width=100%" class="w3-round w3-image w3-opacity w3-hover-opacity-off" />
+            <hr />
+            <h3 class="w3-center">Internet of Things</h3>
+            <p style="text-align:justify">
+                Tuy chưa có mặt nhiều trong các hệ thống xe tự lái, <em>Internet of Things (IoT)</em> vẫn được nhắc đến
+                như một công nghệ có thể làm chủ tương lai của hệ thống này. Các thông tin ,dữ liệu mà mỗi
+                xe có được đều có thể được chia sẻ và kết nối với nhau, các thuật toán đều có thể được xử lý
+                nhanh và hiệu quả hơn. Những thông tin về tình trạng giao thông, các tuyến đường, việc định
+                hướng, thời tiết hiện tại... đến sự hoạt động của hệ thống thắng, bánh xe, và hệ thống động lực
+                của xe... Tất cả đều được chia sẽ giữa các xe với nhau... Hay chỉ với một vài thao tác trên điện
+                thoại, một chiếc xe tự động lái đã có thể nhận được dữ liệu về vị trí, yêu cầu của bạn...
+            </p>
+            <img src="https://puu.sh/CaHcc/41fd1e634e.png style="height:100%; width=100%" class="w3-round w3-image w3-opacity w3-hover-opacity-off" />
+
+            <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+                <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+                <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+                    <img id="img01" class="w3-image">
+                    <p id="caption" class="w3-opacity w3-large"></p>
+                </div>
+            </div>
+
+
+
+            <div class="w3-content w3-container w3-padding-64" id="about">
+                <h2 class="w3-center">CÁC THÀNH VIÊN TRONG NHÓM</h2>
+                <div class="w3-row">
+                    <div class="w3-col m6 w3-margin-left w3-padding-large">
+                        <p>
+                            <b>
+                                <i class="fa fa-user w3-margin-right"></i>
+                                VŨ NGUYỄN MINH ĐẠT <br>
+                                <i class="fa fa-user w3-margin-right"></i>
+                                HUỲNH BÁ ĐẠT <br>
+                                <i class="fa fa-user w3-margin-right"></i>
+                                TRẦN ĐĂNG ĐỨC ĐẠT <br>
+                                <i class="fa fa-user w3-margin-right"></i>
+                                NGUYỄN THIÊN ĐĂNG <br>
+                                <i class="fa fa-user w3-margin-right"></i>
+                                ĐOÀN NHẬT HOÀNG <br>
+                                <i class="fa fa-user w3-margin-right"></i>
+                                VĂN CHẤN DƯƠNG <br>
+                            </b>
+                        </p>
+                    </div>
+                </div>
+                <div class="w3-content w3-container w3-padding-64" id="reference">
+                    <h2 class="w3-center">TÀI LIỆU</h2>
+                    Internet <br />
+                    <a href="https://engineering.com" target="_blank">https://engineering.com</a> <br />
+                    <a href="https://www.cheatsheet.com" target="_blank">https://www.cheatsheet.com</a> <br />
+                    <a href="https://www.medium.com" target="_blank">https://www.medium.com</a> <br />
+                    <a href="https://Datascience.com" target="_blank">https://Datascience.com </a><br />
+                    <a href="https://www.datasciencecentral.com/profiles/blogs/transfer-learning-deep-learning-for-everyone" target="_blank">https://www.datasciencecentral.com/profiles/blogs/transfer-learning-deep-learning-for-everyone/</a><br />
+                    <a href="https://Wikipedia.org" target="_blank">https://Wikipedia.org</a><br />
+                    <a href="https://adeshpande3.github.io/A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks/" target="_blank">https://adeshpande3.github.io/A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks/</a><br />
+                    <a href="https://towardsdatascience.com/self-driving-car-localization-f800d4d8da49" target="_blank">https://towardsdatascience.com/self-driving-car-localization-f800d4d8da49</a><br />
+                </div>
+
+
+                <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+                    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Trở lại trang chủ</a>
+                </footer>
+
+                <script>
+
+                    function onClick(element) {
+                        document.getElementById("img01").src = element.src;
+                        document.getElementById("modal01").style.display = "block";
+                        var captionText = document.getElementById("caption");
+                        captionText.innerHTML = element.alt;
+                    }
+
+                    function myFunction() {
+                        var x = document.getElementById("myTopnav");
+                        if (x.className === "topnav") {
+                            x.className += " responsive";
+                        } else {
+                            x.className = "topnav";
+                        }
+                    }
+
+                    window.onscroll = function () { myFunction() };
+                    function myFunction() {
+                        var navbar = document.getElementById("myNavbar");
+                        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                            navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+                        } else {
+                            navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+                        }
+                    }
+
+                    function toggleFunction() {
+                        var x = document.getElementById("navDemo");
+                        if (x.className.indexOf("w3-show") == -1) {
+                            x.className += " w3-show";
+                        } else {
+                            x.className = x.className.replace(" w3-show", "");
+                        }
+                    }
+
+                    function openNav() {
+                        document.getElementById("myNav").style.width = "100%";
+                    }
+
+                    function closeNav() {
+                        document.getElementById("myNav").style.width = "0%";
+                    }
+                </script>
+
+</body>
+</html>
